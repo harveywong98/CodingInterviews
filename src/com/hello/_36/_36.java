@@ -1,7 +1,5 @@
 package com.hello._36;
 
-import java.util.function.Predicate;
-
 public class _36 {
     public static void main(String[] args) {
         // 二叉搜索树与双向链表
@@ -9,21 +7,24 @@ public class _36 {
 }
 
 class Solution {
-    Node pre, head;
+    Node pre = null;
+    Node head = null;
     public Node treeToDoublyList(Node root) {
-        if(null == root){
+        if (null == root){
             return null;
         }
         dfs(root);
-        head.left = pre;
         pre.right = head;
+        head.left = pre;
         return head;
     }
 
     void dfs(Node cur){
-        if (null == cur) return;
+        if (null == cur){
+            return;
+        }
         dfs(cur.left);
-        if (pre != null) {
+        if (null != pre){
             pre.right = cur;
         } else {
             head = cur;
