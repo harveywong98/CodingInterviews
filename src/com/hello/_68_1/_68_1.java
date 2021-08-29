@@ -11,9 +11,9 @@ class Solution {
         TreeNode ancestor = root;
         while (true){
             if (ancestor.val < p.val && ancestor.val < q.val){
-                ancestor = ancestor.left;
-            } else if(ancestor.val > p.val && ancestor.val >q.val){
                 ancestor = ancestor.right;
+            } else if(ancestor.val > p.val && ancestor.val >q.val){
+                ancestor = ancestor.left;
             } else {
                 break;
             }
